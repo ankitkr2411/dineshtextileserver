@@ -15,7 +15,26 @@ const Saree = require("../model/sareeSchema");
 const Blouse = require("../model/blouseSchema");
 const Lehanga = require("../model/lehangaSchema");
 
+router.get('/saree', async (req, res) => {
 
+
+    try {
+
+        const sareeProduct = await Saree.find();
+
+        if (sareeProduct) {
+
+            res.send(sareeProduct);
+        }
+
+    }
+
+    catch (err) {
+
+        console.log(err);
+
+    }
+})
 
 //to fetch all saree data
 router.post('/saree', async (req, res) => {
